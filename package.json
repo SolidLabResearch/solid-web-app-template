@@ -1,0 +1,31 @@
+{
+  "name": "app-template",
+  "version": "0.0.1",
+  "description": "A template for a Solid app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare:pods": "npx @solid/community-server -c @css:config/file-no-setup.json --seededPodConfigJson seeded-pod-config.json -f pods",
+    "start:pods": "npx @solid/community-server -c @css:config/file-no-setup.json -f pods",
+    "reset:pods": "rm -rf pods",
+    "build": "npx webpack",
+    "start": "npx webpack serve -c ./webpack.dev.config.js"
+  },
+  "author": "Pieter Heyvaert (https://pieterheyvaert.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@solid/community-server": "^6.0.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "http-server": "^14.1.1",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "@inrupt/solid-client-authn-browser": "^1.16.0"
+  }
+}
