@@ -1,0 +1,33 @@
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+body {
+    margin: 60px;
+    font-family: Helvetica, sans-serif;
+}
+
+#webid {
+    font-size: 16px;
+    padding-top: 9px;
+    padding-left: 10px;
+    padding-bottom: 6px;
+    width: 350px;
+}
+
+#log-in-btn {
+    padding: 5px;
+}
+
+label[for="webid"] {
+    margin-right: 15px;
+}
+
+#webid-form, #current-user {
+    padding-bottom: 15px;
+}
+
+button {
+    font-size: 20px;
+}

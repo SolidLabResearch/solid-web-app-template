@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Solid app</title>
+
+  <link rel="stylesheet" href="style.css">
   <script src="index.js"></script>
 </head>
 <body>
-Test
+<div id="webid-form">
+  <label for="webid">WebID</label><input type="text" id="webid" placeholder="Enter your WebID">
+  <button id="log-in-btn">Log in</button>
+</div>
+<div id="current-user" class="hidden"></div>
+<button id="query-books" class="hidden">Show books</button>
 </body>
 </html>

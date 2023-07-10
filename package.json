@@ -26,6 +26,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@comunica/query-sparql": "^2.8.0",
     "@inrupt/solid-client-authn-browser": "^1.16.0"
   }
 }
