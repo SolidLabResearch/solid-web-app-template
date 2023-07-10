@@ -9,8 +9,11 @@ This template helps you to get started with creating a Solid app.
 
 ## Usage
 
-1. `npm i`
-2. Prepare pods via
+1. Install the dependencies via 
+   ```shell
+   npm i
+   ```
+2. Prepare the pods via
    ```shell
    npm prepare:pods
    ```
