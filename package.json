@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare:pods": "npx @solid/community-server -c @css:config/file-no-setup.json --seededPodConfigJson seeded-pod-config.json -f pods",
+    "prepare:pods:accounts": "npx @solid/community-server -c @css:config/file-no-setup.json --seededPodConfigJson seeded-pod-config.json -f pods",
+    "prepare:pods:data": "cp initial-pod-data/* pods/example",
     "start:pods": "npx @solid/community-server -c @css:config/file-no-setup.json -f pods",
     "reset:pods": "rm -rf pods",
     "build": "npx webpack",

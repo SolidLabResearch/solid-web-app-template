@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/"
+  },
+  "@id": "#wish-list",
+  "@type": "ItemList",
+  "name": "Wish list of books",
+  "itemListElement": [
+    {
+      "@type": "Book",
+      "name": "Too Late",
+      "creator": {
+        "@type": "Person",
+        "name": "Colleen Hoover"
+      }
+    },
+    {
+      "@type": "Book",
+      "name": "Fourth Wing",
+      "creator": {
+        "@type": "Person",
+        "name": "Rebecca Yarros"
+      }
+    }
+  ]
+}

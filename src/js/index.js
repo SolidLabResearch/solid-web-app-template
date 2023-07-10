@@ -1,9 +1,17 @@
-import {login, getDefaultSession, handleIncomingRedirect} from '@inrupt/solid-client-authn-browser';
+import {login, getDefaultSession, handleIncomingRedirect, fetch} from '@inrupt/solid-client-authn-browser';
 import {QueryEngine} from "@comunica/query-sparql";
 
 window.onload = async () => {
   document.getElementById('log-in-btn').addEventListener('click', () => {
     clickLogInBtn()
+  });
+
+  document.getElementById('query-wish-list').addEventListener('click', () => {
+    queryBooks('http://localhost:3000/example/wish-list');
+  });
+
+  document.getElementById('query-favourite-books').addEventListener('click', () => {
+    queryBooks('http://localhost:3000/example/favourite-books');
   });
 
   await handleIncomingRedirect({
@@ -17,7 +25,7 @@ window.onload = async () => {
 
     document.getElementById('webid-form').classList.add('hidden');
     document.getElementById('current-user').classList.remove('hidden');
-    document.getElementById('query-books').classList.remove('hidden');
+    document.getElementById('query-favourite-books').classList.remove('hidden');
     document.getElementById('current-user').innerText = 'Logged in with WebID ' + webid;
   }
 }
@@ -54,4 +62,38 @@ async function clickLogInBtn(solidFetch) {
   } else {
     document.getElementById('no-oidc-issuer-error').classList.remove('hidden');
   }
+}
+
+async function queryBooks(url) {
+  const myEngine = new QueryEngine();
+  const bindingsStream = await myEngine.queryBindings(`
+  PREFIX schema: <http://schema.org/> 
+  SELECT * WHERE {
+   ?list schema:name ?listTitle;
+     schema:itemListElement [
+     schema:name ?bookTitle;
+     schema:creator [
+       schema:name ?authorName
+     ]
+   ].
+  }`, {
+    sources: [url],
+    fetch
+  });
+
+  const bindings = await bindingsStream.toArray();
+
+  let content = '';
+
+  for (const binding of bindings) {
+    content += `<li>${binding.get('bookTitle').value} (${binding.get('authorName').value})</li>`;
+  }
+
+  const $ul = document.getElementById('list');
+  $ul.innerHTML = content;
+  $ul.classList.remove('hidden');
+
+  const $title = document.getElementById('list-title');
+  $title.innerText = bindings[0].get('listTitle').value;
+  $title.classList.remove('hidden');
 }

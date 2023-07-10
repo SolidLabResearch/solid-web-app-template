@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/"
+  },
+  "@id": "#favourite-books",
+  "@type": "ItemList",
+  "name": "Favourite books",
+  "itemListElement": [
+    {
+      "@type": "Book",
+      "name": "The Five-Star Weekend",
+      "creator": {
+        "@type": "Person",
+        "name": "Elin Hilderbrand"
+      }
+    },
+    {
+      "@type": "Book",
+      "name": "It Ends With Us",
+      "creator": {
+        "@type": "Person",
+        "name": "Colleen Hoover"
+      }
+    }
+  ]
+}

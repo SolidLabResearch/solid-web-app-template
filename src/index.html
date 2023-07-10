@@ -9,10 +9,15 @@
 </head>
 <body>
 <div id="webid-form">
-  <label for="webid">WebID</label><input type="text" id="webid" placeholder="Enter your WebID">
+  <label for="webid">WebID</label><input type="text" id="webid" placeholder="Enter your WebID" value="http://localhost:3000/example/profile/card#me">
   <button id="log-in-btn">Log in</button>
 </div>
 <div id="current-user" class="hidden"></div>
-<button id="query-books" class="hidden">Show books</button>
+<button id="query-wish-list" >Show book wish list (public)</button>
+<button id="query-favourite-books" class="hidden">Show favourite books (private)</button>
+
+
+<h4 id="list-title" class="hidden"></h4>
+<ul id="list" class="hidden"></ul>
 </body>
 </html>
