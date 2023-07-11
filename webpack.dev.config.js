@@ -1,6 +1,6 @@
-const config = require('./webpack.config');
+import config from './webpack.config.js';
 
-module.exports = Object.assign(config, {
+export default Object.assign(config, {
     mode: "development",
     devtool: 'source-map',
     devServer: {

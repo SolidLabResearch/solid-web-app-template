@@ -39,7 +39,7 @@ window.onload = async () => {
  * @param oidcIssuer - The OIDC issuer to log in with.
  * @returns {Promise<void>}
  */
-async function login(oidcIssuer) {
+async function solidLogin(oidcIssuer) {
   if (!getDefaultSession().info.isLoggedIn) {
     await login({
       oidcIssuer,
@@ -73,7 +73,7 @@ async function clickLogInBtn() {
     }
 
     console.log('Using OIDC issuer: ' + bindings[0].get('oidcIssuer').id);
-    login(bindings[0].get('oidcIssuer').id);
+    solidLogin(bindings[0].get('oidcIssuer').id);
   } else {
     document.getElementById('no-oidc-issuer-error').classList.remove('hidden');
   }
