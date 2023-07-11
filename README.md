@@ -1,6 +1,6 @@
-# Solid app template
+# Solid Web app template
 
-This template helps you to get started with creating a Solid app.
+This template helps you to get started with creating a Solid Web app.
 
 ## Features
 
@@ -8,6 +8,8 @@ This template helps you to get started with creating a Solid app.
 - Comunica for querying pods and other data sources.
 - [Solid Authentication library](https://github.com/inrupt/solid-client-authn-js) 
   for authenticating with an identity provider.
+  You find the browser-specific documentation 
+  [here](https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/authenticate-browser/).
 
 ## Usage
 
@@ -45,6 +47,19 @@ This template helps you to get started with creating a Solid app.
 7. Log in with the WebID <http://localhost:3000/example/profile/card#me>.
 8. Click the button "Show book wish list (private)" to view a private list of books on the pod
    at <http://localhost:3000/example/favourite-books>.
+
+## Pod data
+
+You find the initial pod data in the folder `initial-pod-data`.
+It has two resources:
+- `favourite-books`: this list contains the favourite books of the user. 
+   This list is private. only the user has read, write, and control access.
+   This is specified in `favourite-books.acl`.
+- `wish-list`: this list contains the wish list of book of the user.
+   This list is public: everybody can read the list, but only the user can write and control it.
+   This is specified in `wish-list.acl`.
+
+You find the shape to which the above two resources adhere in `shapes/book-list.ttl`.
 
 ## License
 

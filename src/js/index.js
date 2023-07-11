@@ -14,6 +14,8 @@ window.onload = async () => {
     queryBooks('http://localhost:3000/example/favourite-books');
   });
 
+  // This function check if the app is reloaded after a login.
+  // This will also restore the session if the user previously logged in.
   await handleIncomingRedirect({
     url: window.location.href,
     restorePreviousSession: true
@@ -30,7 +32,14 @@ window.onload = async () => {
   }
 }
 
-async function loginAndFetch(oidcIssuer) {
+/**
+ * This method logs in the user via a given OIDC issuer.
+ * The user is redirected to the login page of the identity provider
+ * and all state of the app is gone.
+ * @param oidcIssuer - The OIDC issuer to log in with.
+ * @returns {Promise<void>}
+ */
+async function login(oidcIssuer) {
   if (!getDefaultSession().info.isLoggedIn) {
     await login({
       oidcIssuer,
@@ -39,7 +48,13 @@ async function loginAndFetch(oidcIssuer) {
   }
 }
 
-async function clickLogInBtn(solidFetch) {
+/**
+ * This function handles the click on the login button.
+ * It fetches the OIDC issuer from the WebID
+ * and uses that to login.
+ * @returns {Promise<void>}
+ */
+async function clickLogInBtn() {
   const webId = document.getElementById('webid').value;
   const myEngine = new QueryEngine();
   const bindingsStream = await myEngine.queryBindings(`
@@ -58,12 +73,18 @@ async function clickLogInBtn(solidFetch) {
     }
 
     console.log('Using OIDC issuer: ' + bindings[0].get('oidcIssuer').id);
-    loginAndFetch(bindings[0].get('oidcIssuer').id, solidFetch);
+    login(bindings[0].get('oidcIssuer').id);
   } else {
     document.getElementById('no-oidc-issuer-error').classList.remove('hidden');
   }
 }
 
+/**
+ * This function queries a list of books at the given url.
+ * The results are shown in the HTML as an unordered list.
+ * @param url - The url of a resource with books.
+ * @returns {Promise<void>}
+ */
 async function queryBooks(url) {
   const myEngine = new QueryEngine();
   const bindingsStream = await myEngine.queryBindings(`
@@ -80,9 +101,9 @@ async function queryBooks(url) {
     sources: [url],
     fetch
   });
+  // The above fetch is an authenticated fetch once the user is logged in.
 
   const bindings = await bindingsStream.toArray();
-
   let content = '';
 
   for (const binding of bindings) {

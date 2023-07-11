@@ -1,0 +1,33 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+##########
+# Shapes #
+##########
+<#BookListShape>
+  a               sh:NodeShape ;
+  sh:targetClass  schema:ItemList ;
+  sh:property     [ sh:path     schema:name ;
+                    sh:datatype xsd:string ;
+                    sh:name "The name of the book list.";
+                    sh:minCount 1 ; ];
+  sh:property     [ sh:path schema:itemListElement;
+                    sh:nodeType <#Book>; ].
+
+<#Book>
+  a               sh:NodeShape;
+  sh:targetClass  schema:Book;
+  sh:property     [ sh:path schema:name;
+                    sh:minCount 1 ];
+  sh:property     [ sh:path schema:creator;
+                    sh:nodeType <#Author>; ].
+
+
+<#Author>
+  a               sh:NodeShape;
+  sh:targetClass  schema:Person;
+  sh:property     [ sh:path schema:name;
+                    sh:minCount 1 ].
