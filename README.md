@@ -46,6 +46,8 @@ This template helps you to get started with creating a Solid Web app.
 6. Click the button "Show book wish list (public)" to view a public list of books on the pod
    at <http://localhost:3000/example/wish-list>.
 7. Log in with the WebID <http://localhost:3000/example/profile/card#me>.
+   The email and password of the account are defined in `seeded-pod-config.json`.
+   This file is also in step 2 to prepare the pods.
 8. Click the button "Show book wish list (private)" to view a private list of books on the pod
    at <http://localhost:3000/example/favourite-books>.
 
