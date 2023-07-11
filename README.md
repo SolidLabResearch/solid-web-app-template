@@ -4,12 +4,13 @@ This template helps you to get started with creating a Solid Web app.
 
 ## Features
 
-- Community Solid Server to test with pods locally.
-- Comunica for querying pods and other data sources.
+- [Community Solid Server](https://github.com/CommunitySolidServer/CommunitySolidServer) to test with pods locally.
+- [Comunica](https://comunica.dev/) for querying pods and other data sources.
 - [Solid Authentication library](https://github.com/inrupt/solid-client-authn-js) 
   for authenticating with an identity provider.
   You find the browser-specific documentation 
   [here](https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/authenticate-browser/).
+- [webpack](https://webpack.js.org/) to bundle the JavaScript.
 
 ## Usage
 
