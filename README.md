@@ -22,7 +22,7 @@ This template helps you to get started with creating a Solid Web app.
    ```shell
    npm run prepare:pods
    ```
-3. Start pods via
+3. Start the pods via
    ```shell
    npm run start:pods
    ```
