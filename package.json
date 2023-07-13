@@ -8,9 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare:pods": "npm run prepare:pods:accounts && npm run prepare:pods:data",
     "prepare:pods:accounts": "node scripts/add-pod-accounts.js",
-    "prepare:pods:data": "cp initial-pod-data/* pods/example",
+    "prepare:pods:data": "cpy initial-pod-data/* pods/example/ --flat",
     "start:pods": "npx @solid/community-server -c @css:config/file-no-setup.json -f pods",
-    "reset:pods": "rm -rf pods",
+    "reset:pods": "npx rimraf pods && npm run prepare:pods",
     "build": "npx webpack",
     "start": "npx webpack serve -c ./webpack.dev.config.js"
   },
@@ -22,9 +22,11 @@
     "@babel/preset-env": "^7.16.11",
     "@solid/community-server": "^6.0.1",
     "copy-webpack-plugin": "^11.0.0",
+    "cpy-cli": "^5.0.0",
     "http-server": "^14.1.1",
     "node-fetch": "^3.3.1",
     "node-polyfill-webpack-plugin": "^2.0.1",
+    "rimraf": "^5.0.1",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
