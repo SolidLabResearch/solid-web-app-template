@@ -39,6 +39,16 @@ This template helps you to get started with creating a Solid Web app.
 8. Click the button "Show book wish list (private)" to view a private list of books on the pod
    at <http://localhost:3000/example/favourite-books>.
 
+If at some point you want to reset the pod data,
+you do 
+```shell
+npm run reset:pods
+```
+and then again
+```shell
+npm run prepare:pods
+```
+
 ## Pod data
 
 You find the initial pod data in the folder `initial-pod-data`.
