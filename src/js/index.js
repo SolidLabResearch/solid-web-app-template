@@ -2,9 +2,7 @@ import {login, getDefaultSession, handleIncomingRedirect, fetch} from '@inrupt/s
 import {QueryEngine} from "@comunica/query-sparql";
 
 window.onload = async () => {
-  document.getElementById('log-in-btn').addEventListener('click', () => {
-    clickLogInBtn()
-  });
+  document.getElementById('log-in-btn').addEventListener('click', clickLogInBtn);
 
   document.getElementById('query-wish-list').addEventListener('click', () => {
     queryBooks('http://localhost:3000/example/wish-list');
