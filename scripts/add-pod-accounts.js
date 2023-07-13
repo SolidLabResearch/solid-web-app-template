@@ -1,27 +1,32 @@
-import { exec } from 'node:child_process';
-import fetch from 'node-fetch';
+import { AppRunner, joinFilePath } from '@solid/community-server';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-let killingCSS = false;
-const css = exec('npx @solid/community-server -c @css:config/file-no-setup.json --seededPodConfigJson seeded-pod-config.json -f pods', (err, stdout, stderr) => {
-  if (!killingCSS) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(stdout);
-  }
-});
+addPodAccounts();
 
-const intervalId = setInterval(async () => {
-  try {
-    const response = await fetch('http://localhost:3000/');
+async function addPodAccounts() {
+  const app = await new AppRunner().create(
+    {
+      // Tell Components.js where to start looking for component configurations.
+      mainModulePath: joinFilePath(__dirname, '..'),
+      // How CSS handles typings conflicts with the Components.js expectations so this needs to be disabled.
+      typeChecking: false,
+      // We don't want Components.js to create an error dump in case something goes wrong with our test.
+      dumpErrorState: false,
+    },
+    joinFilePath(__dirname, '../node_modules/@solid/community-server/config/file-no-setup.json'),
+    // We do not use any custom Components.js variable bindings and set our values through the CLI options below.
+    {},
+    {
+      port: 3000,
+      loggingLevel: 'off',
+      seededPodConfigJson: 'seeded-pod-config.json',
+      rootFilePath: 'pods'
+    },
+  );
 
-    if (response.ok) {
-      killingCSS = true;
-      css.kill();
-      clearInterval(intervalId);
-    }
-  } catch (e) {
-    // We ignore this error, because we expect to get errors when the server has not started yet.
-  }
-}, 500);
+  await app.start();
+  await app.stop();
+}
