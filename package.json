@@ -4,6 +4,7 @@
   "description": "A template for a Solid Web app.",
   "main": "index.js",
   "type": "module",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare:pods": "npm run prepare:pods:accounts && npm run prepare:pods:data",
@@ -34,5 +35,8 @@
   "dependencies": {
     "@comunica/query-sparql": "^2.8.0",
     "@inrupt/solid-client-authn-browser": "^1.16.0"
+  },
+  "engines": {
+    "node": "^18.16.1 || ^16.20.1"
   }
 }
