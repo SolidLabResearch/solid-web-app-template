@@ -30,10 +30,18 @@ This template helps you to get started with creating a Solid Web app.
    ```shell
    npm run start:pods
    ```
+   The server is ready when the following message appears in the terminal
+   ```
+   Listening to server at http://localhost:3000/
+   ```
    Keep this process running.
 5. In another terminal serve the app using webpack via
    ```shell
    npm start
+   ```
+   The app is ready when the following message appears in the terminal
+   ```
+   webpack 5.88.1 compiled successfully
    ```
 6. Browse to <http://localhost:8080> to use the app.
 7. Click the button "Show book wish list (public)" to view a public list of books on the pod

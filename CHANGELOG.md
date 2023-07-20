@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- Write in the README what to wait for after "npm run start:pods" and "npm start" 
+  (see [issue 6](https://github.com/SolidLabResearch/solid-web-app-template/issues/6))
+
 ## [0.0.2] - 2023-07-18
 
 ### Added
