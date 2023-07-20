@@ -71,6 +71,12 @@ It has two resources:
 
 You find the shape to which the above two resources adhere in `shapes/book-list.ttl`.
 
+## Pod accounts
+
+You can add more accounts by updating the file `seeded-pod-config.json`.
+You find more information about this file 
+[here](https://communitysolidserver.github.io/CommunitySolidServer/6.x/usage/seeding-pods/)
+
 ## License
 
 This code is copyrighted by [Ghent University – imec](http://idlab.ugent.be/) and

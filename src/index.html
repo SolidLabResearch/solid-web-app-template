@@ -9,14 +9,18 @@
 </head>
 <body>
 <div id="webid-form">
-  <label for="webid">WebID</label><input type="text" id="webid" placeholder="Enter your WebID" value="http://localhost:3000/example/profile/card#me">
+  <label for="webid">WebID</label><input type="text" id="webid" placeholder="Enter your WebID"
+                                         value="http://localhost:3000/example/profile/card#me">
   <button id="log-in-btn">Log in</button>
 </div>
 <div id="no-oidc-issuer-error" class="hidden">
   Error: the WebID has no OIDC issuer defined.
 </div>
-<div id="current-user" class="hidden"></div>
-<button id="query-wish-list" >Show book wish list (public)</button>
+<div id="user" class="hidden">
+  <p>Logged in with WebID <span id="current-webid"></span></p>
+  <button id="log-out-btn">Log out</button>
+</div>
+<button id="query-wish-list">Show book wish list (public)</button>
 <button id="query-favourite-books" class="hidden">Show favourite books (private)</button>
 
 

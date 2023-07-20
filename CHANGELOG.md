@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Write in the README what to wait for after "npm run start:pods" and "npm start" 
   (see [issue 6](https://github.com/SolidLabResearch/solid-web-app-template/issues/6))
+- Log out button (see [issue 5](https://github.com/SolidLabResearch/solid-web-app-template/issues/5))
+- Instructions on how to add more pod accounts (see [issue 5](https://github.com/SolidLabResearch/solid-web-app-template/issues/5))
 
 ## [0.0.2] - 2023-07-18
 

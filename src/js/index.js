@@ -1,8 +1,9 @@
-import {login, getDefaultSession, handleIncomingRedirect, fetch} from '@inrupt/solid-client-authn-browser';
+import {login, getDefaultSession, handleIncomingRedirect, fetch, logout} from '@inrupt/solid-client-authn-browser';
 import {QueryEngine} from "@comunica/query-sparql";
 
 window.onload = async () => {
   document.getElementById('log-in-btn').addEventListener('click', clickLogInBtn);
+  document.getElementById('log-out-btn').addEventListener('click', clickLogOutBtn);
 
   document.getElementById('query-wish-list').addEventListener('click', () => {
     queryBooks('http://localhost:3000/example/wish-list');
@@ -24,9 +25,9 @@ window.onload = async () => {
     console.log(webid);
 
     document.getElementById('webid-form').classList.add('hidden');
-    document.getElementById('current-user').classList.remove('hidden');
+    document.getElementById('user').classList.remove('hidden');
     document.getElementById('query-favourite-books').classList.remove('hidden');
-    document.getElementById('current-user').innerText = 'Logged in with WebID ' + webid;
+    document.getElementById('current-webid').innerText = webid;
   }
 }
 
@@ -75,6 +76,13 @@ async function clickLogInBtn() {
   } else {
     document.getElementById('no-oidc-issuer-error').classList.remove('hidden');
   }
+}
+
+function clickLogOutBtn() {
+  document.getElementById('webid-form').classList.remove('hidden');
+  document.getElementById('user').classList.add('hidden');
+  document.getElementById('query-favourite-books').classList.add('hidden');
+  logout();
 }
 
 /**
