@@ -6,7 +6,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx cypress open",
     "prepare:pods": "npm run prepare:pods:accounts && npm run prepare:pods:data",
     "prepare:pods:accounts": "node scripts/add-pod-accounts.js",
     "prepare:pods:data": "cpy initial-pod-data/* pods/example/ --flat",
@@ -24,6 +24,7 @@
     "@solid/community-server": "^6.0.1",
     "copy-webpack-plugin": "^11.0.0",
     "cpy-cli": "^5.0.0",
+    "cypress": "^12.17.1",
     "http-server": "^14.1.1",
     "node-fetch": "^3.3.1",
     "node-polyfill-webpack-plugin": "^2.0.1",
