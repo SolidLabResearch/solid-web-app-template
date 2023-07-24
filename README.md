@@ -11,6 +11,7 @@ This template helps you to get started with creating a Solid Web app.
   You find the browser-specific documentation 
   [here](https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/authenticate-browser/).
 - [webpack](https://webpack.js.org/) to bundle the JavaScript.
+- [Cypress](https://www.cypress.io/) to test our app.
 
 ## Usage
 
@@ -76,6 +77,43 @@ You find the shape to which the above two resources adhere in `shapes/book-list.
 You can add more accounts by updating the file `seeded-pod-config.json`.
 You find more information about this file 
 [here](https://communitysolidserver.github.io/CommunitySolidServer/6.x/usage/seeding-pods/)
+
+## Tests
+
+We use [Cypress](https://www.cypress.io/) for our tests.
+Execute the following steps to run the tests.
+
+1. Start Solid server with the pods via
+   ```shell
+   npm run start:pods
+   ```
+   The server is ready when the following message appears in the terminal
+   ```
+   Listening to server at http://localhost:3000/
+   ```
+   Keep this process running.
+2. In another terminal serve the app using webpack via
+   ```shell
+   npm start
+   ```
+   The app is ready when the following message appears in the terminal
+   ```
+   webpack 5.88.1 compiled successfully
+   ```
+3. In yet another terminal start Cypress via
+   ```shell
+   npm test
+   ```
+4. A new window opens.
+5. Click on "E2E Testing".
+6. Select the browser you want to test with.
+7. Click on "Start E2E Testing in [browser]".
+8. The selected browser opens.
+9. Click on "spec.cy.js" to select the tests.
+10. The tests are automatically executed.
+
+You find all details of the tests in `cypress/e2e/spec.cy.js`.
+You find all documentation about Cypress [here](https://docs.cypress.io).
 
 ## License
 
